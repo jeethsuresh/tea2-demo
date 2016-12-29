@@ -1,14 +1,25 @@
 import * as express from "express";
 
-const app = express();
-const port = 8080;
+class Server {
+    public app: express.Application;
+    private port: number;
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+    constructor() {
+        this.app = express();
+        this.port = 3000;
+        this.useStatic();
+    }
 
-app.listen(port, () => {
-    console.log("Test Express server with Typescript")
-});
+    private useStatic(): void {
+        this.app.use(express.static('dist'));
+    }
 
-export let App = app;
+    public listen(): void {
+        this.app.listen(this.port, () => {
+            console.log("Test Express server with Typescript")
+        });
+    }
+}
+
+const server = new Server();
+server.listen();

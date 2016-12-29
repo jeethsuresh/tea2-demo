@@ -1,5 +1,5 @@
 .vscode/
 node_modules/
-typings/
-**.map
-**.js
+dist/
+build/
+public/**/*.js
