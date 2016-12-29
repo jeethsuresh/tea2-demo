@@ -5,9 +5,9 @@ var helpers = require('./helpers');
 
 module.exports = {
   entry: {
-    'polyfills': './public/polyfills.ts',
-    'vendor': './public/vendor.ts',
-    'app': './public/main.ts'
+    'polyfills': './src/public/polyfills.ts',
+    'vendor': './src/public/vendor.ts',
+    'app': './src/public/main.ts'
   },
 
   resolve: {
@@ -30,12 +30,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        exclude: helpers.root('public', 'app'),
+        exclude: helpers.root('src', 'public', 'app'),
         loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
       },
       {
         test: /\.css$/,
-        include: helpers.root('public', 'app'),
+        include: helpers.root('src', 'public', 'app'),
         loader: 'raw'
       }
     ]
@@ -47,7 +47,7 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      template: 'public/index.html'
+      template: 'src/public/index.html'
     })
   ]
 };
