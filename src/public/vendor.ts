@@ -9,3 +9,9 @@ import '@angular/router';
 // RxJS
 import 'rxjs';
 
+// Imports of ts, js, css or scss
+import 'jquery/dist/jquery.js'
+import 'bootstrap/dist/js/bootstrap.js'
+import 'bootstrap/dist/css/bootstrap.css'
+
+
