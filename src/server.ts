@@ -1,6 +1,8 @@
 import * as express from "express";
 
-class Server {
+import { APIRouter } from './routes/router';
+
+export class Server {
     public app: express.Application;
     private port: number;
 
@@ -8,10 +10,16 @@ class Server {
         this.app = express();
         this.port = 3000;
         this.useStatic();
+        this.apiRoutes();
     }
 
     private useStatic(): void {
         this.app.use(express.static('dist'));
+    }
+
+    private apiRoutes(): void {
+        let apiRouter = new APIRouter();
+        this.app.use(apiRouter.routes());
     }
 
     public listen(): void {
@@ -21,5 +29,9 @@ class Server {
     }
 }
 
-const server = new Server();
-server.listen();
+const bootstrap: () => void = function bootstrap(): void {
+    const server = new Server();
+    server.listen();
+}
+
+bootstrap();

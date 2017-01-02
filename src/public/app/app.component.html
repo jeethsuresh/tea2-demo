@@ -1,1 +1,13 @@
-<h1>Hello World from Angular 2, Typescript and Node.js</h1>
+<div>
+    <h1>Hello World from Angular 2, Typescript and Node.js</h1>
+    <table>
+        <tr>
+            <th>Name </th>
+            <th>Id</th>
+        </tr>
+        <tr *ngFor="let person of people">
+            <td class="person-name">{{person.name}} </td>
+            <td class="person-id">{{person.id}} </td>
+        </tr>
+    </table>
+</div>
