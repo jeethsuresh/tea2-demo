@@ -1,13 +1,14 @@
-import { Person } from './person';
+import { Person } from './person.model';
+import { v4 as uuidV4 } from 'uuid';
 
 let People: Person[] = [
-    { name: "Billy", id: 1 },
-    { name: "Travis", id: 2 },
-    { name: "Danielle", id: 3 },
-    { name: "Tommy", id: 4 },
-    { name: "Stacy", id: 5 },
-    { name: "Candice", id: 6 },
-    { name: "Ken", id: 7 }
+    { name: "Billy", id: uuidV4() },
+    { name: "Travis", id: uuidV4() },
+    { name: "Danielle", id: uuidV4() },
+    { name: "Tommy", id: uuidV4() },
+    { name: "Stacy", id: uuidV4() },
+    { name: "Candice", id: uuidV4() },
+    { name: "Ken", id: uuidV4() }
 ];
 
 export { People as PeopleMock };

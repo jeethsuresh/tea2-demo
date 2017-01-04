@@ -1,19 +1,33 @@
-import * as express from "express";
+import * as express from 'express';
+import * as bodyParser from 'body-parser';
 
 import { APIRouter } from './routes/router';
 
 export class Server {
-    public app: express.Application;
+    private app: express.Application;
     private port: number;
 
     constructor() {
         this.app = express();
         this.port = 3000;
-        this.useStatic();
+        this.staticRoutes();
+        this.middlewares();
         this.apiRoutes();
     }
 
-    private useStatic(): void {
+    private middlewares(): void {
+        // mount json form parser
+        this.app.use(bodyParser.json({
+            strict: true
+        }));
+
+        // mount query string parser
+        this.app.use(bodyParser.urlencoded({
+            extended: true
+        }));
+    }
+
+    private staticRoutes(): void {
         this.app.use(express.static('dist'));
     }
 
@@ -29,7 +43,7 @@ export class Server {
     }
 }
 
-const bootstrap: () => void = function bootstrap(): void {
+const bootstrap: () => void = function(): void {
     const server = new Server();
     server.listen();
 }
