@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter, OnChanges } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Person } from '../shared/person';
 
@@ -8,7 +8,7 @@ import { PeopleService } from '../shared/people.service';
     selector: 'create-people',
     templateUrl: 'create-people.component.html'
 })
-export class CreatePeopleComponent implements OnChanges {
+export class CreatePeopleComponent {
     @Output() updatePeople = new EventEmitter<boolean>();
     public userName: string;
 
@@ -18,6 +18,4 @@ export class CreatePeopleComponent implements OnChanges {
         this.peopleService.postPerson(name)
             .then(() => this.updatePeople.emit(true));
     }
-
-    ngOnChanges() {}
 }
