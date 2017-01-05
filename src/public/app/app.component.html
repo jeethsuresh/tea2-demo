@@ -1,13 +1,38 @@
-<div>
-    <h1>Hello World from Angular 2, Typescript and Node.js</h1>
-    <table>
-        <tr>
-            <th>Name </th>
-            <th>Id</th>
-        </tr>
-        <tr *ngFor="let person of people">
-            <td class="person-name">{{person.name}} </td>
-            <td class="person-id">{{person.id}} </td>
-        </tr>
-    </table>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10">
+            <h1>Hello World from Angular 2, Typescript and Node.js</h1>
+        </div>
+        <div class="col-lg-2 pull-right" style="margin-top: 20px">
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#create-modal">
+                Create
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name </th>
+                    <th>Id</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let person of people">
+                    <td class="person-name" scope="row">{{person.name}} </td>
+                    <td class="person-id">{{person.id}} </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#delete-modal" (click)="newSelected(person)">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <create-people (updatePeople)="updatePeople($event)"></create-people>
+        <delete-people [person]="selectedPerson" (updatePeople)="updatePeople($event)"></delete-people>
+    </div>
 </div>

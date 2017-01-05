@@ -8,6 +8,9 @@ import { Person } from './person';
 @Injectable()
 export class PeopleService {
     private peopleUrl = 'people'
+    private headers = new Headers({
+        'Content-Type': 'application/json'
+    });
 
     constructor(private http: Http) { }
 
@@ -26,6 +29,21 @@ export class PeopleService {
         return this.http.get(url)
             .toPromise()
             .then(response => response.json() as Person)
+            .catch(this.handleError);
+    }
+
+    public deletePerson(id: string): Promise<void> {
+        console.log('Deleting Person by ID')
+        const url = `${this.peopleUrl}/${id}`;
+        return this.http.delete(url)
+            .toPromise()
+            .catch(this.handleError);
+    }
+
+    public postPerson(name: string): Promise<void> {
+        console.log("Posting Person")
+        return this.http.post(this.peopleUrl, JSON.stringify({name: name}), {headers: this.headers})
+            .toPromise()
             .catch(this.handleError);
     }
 

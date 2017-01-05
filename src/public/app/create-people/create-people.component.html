@@ -1,0 +1,24 @@
+<!-- Modal -->
+<div class="modal fade" id="create-modal" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+                <h4 class="modal-title" id="modelTitleId">Create Person</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="post-person"></label>
+                    <input type="text" class="form-control" #postName (keyup)="userName = postName.value" (blur)="userName = postName.value" aria-describedby="helpId" placeholder="Enter name...">
+                    <small id="helpId" class="form-text text-muted">Enter Name of Person you would like to create.</small>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="postPerson(userName); postName.value=''" data-dismiss="modal" [disabled]="!userName">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

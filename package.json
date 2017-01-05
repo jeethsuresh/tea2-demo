@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/travissalascox/ts-node-project.git"
+    "url": "git+https://github.com/travissalascox/tea2-demo.git"
   },
   "author": "Travis Salas Cox",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/travissalascox/ts-node-project/issues"
+    "url": "https://github.com/travissalascox/tea2-demo/issues"
   },
-  "homepage": "https://github.com/travissalascox/ts-node-project#readme",
+  "homepage": "https://github.com/travissalascox/tea2-demo#readme",
   "dependencies": {
     "@angular/common": "~2.4.0",
     "@angular/compiler": "~2.4.0",
